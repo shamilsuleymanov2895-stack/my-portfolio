@@ -2,56 +2,90 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Портфолио | Копирайтинг, Разработка, Дизайн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Копирайтинг и Дизайн</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #f8f9fa; }
-        .hero { background: #212529; color: white; padding: 60px 0; }
-        .card { border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero-section { background: linear-gradient(135deg, #212529 0%, #343a40 100%); color: white; padding: 100px 0; }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 18px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); color: white; }
+        .card { border: none; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); }
     </style>
 </head>
 <body>
 
-<header class="hero text-center">
+<section class="hero-section text-center">
     <div class="container">
-        <h1>Тексты. Код. Дизайн.</h1>
-        <p class="lead">Профессиональные услуги копирайтинга и разработки</p>
+        <h1 class="display-4 fw-bold">Шамиль Баталгириев</h1>
+        <p class="lead">Профессиональный копирайтинг с 2006 года | Дизайн и IT-решения</p>
+        <div class="mt-4">
+            <a href="#contact" class="btn btn-outline-light btn-lg">Оставить заявку</a>
+        </div>
     </div>
-</header>
+</section>
 
 <div class="container my-5">
-    <div class="row g-4">
-        {% for srv in services %}
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 p-4 text-center">
-                <div class="mb-3 text-primary" style="font-size: 2rem;"><i class="bi {{ srv.icon }}"></i></div>
-                <h5 class="fw-bold">{{ srv.title }}</h5>
-                <p class="small text-muted">{{ srv.desc }}</p>
+    <div class="row g-4 text-center">
+        <div class="col-md-4">
+            <div class="card p-4">
+                <i class="fas fa-pen-nib fa-3x mb-3 text-primary"></i>
+                <h3>Копирайтинг</h3>
+                <p>20 лет опыта в создании текстов, которые продают и увлекают.</p>
             </div>
         </div>
-        {% endfor %}
-    </div>
-
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-6 bg-white p-5 rounded-4 shadow-sm">
-            <h3 class="text-center mb-4">Оставить заявку</h3>
-            <form action="/contact" method="POST">
-                <div class="mb-3">
-                    <input type="text" name="name" class="form-control" placeholder="Ваше имя" required>
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="contact" class="form-control" placeholder="Контакт (ТГ или почта)" required>
-                </div>
-                <div class="mb-3">
-                    <textarea name="message" class="form-control" placeholder="Ваш вопрос" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark w-100">Отправить</button>
-            </form>
+        <div class="col-md-4">
+            <div class="card p-4">
+                <i class="fas fa-chart-line fa-3x mb-3 text-success"></i>
+                <h3>Инфографика</h3>
+                <p>Продающий дизайн карточек для маркетплейсов (Wildberries/Ozon).</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4">
+                <i class="fas fa-robot fa-3x mb-3 text-info"></i>
+                <h3>AI и Чат-боты</h3>
+                <p>Разработка умных решений для автоматизации вашего бизнеса.</p>
+            </div>
         </div>
     </div>
 </div>
+
+<section id="contact" class="container my-5 py-5 bg-white rounded shadow-sm">
+    <h2 class="text-center mb-4">Связаться со мной</h2>
+    <form action="/contact" method="post" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <input type="text" name="name" class="form-control" placeholder="Ваше имя" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" name="contact_info" class="form-control" placeholder="Ваш телефон или почта" required>
+        </div>
+        <button type="submit" class="btn btn-dark w-100 py-2">Отправить</button>
+    </form>
+</section>
+
+<a href="https://wa.me/79671585856" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+</a>
+
+<footer class="text-center py-4 text-muted">
+    <p>&copy; 2026 Все права защищены</p>
+</footer>
 
 </body>
 </html>
